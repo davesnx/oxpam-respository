@@ -68,6 +68,6 @@ patches: ["oxcaml-ocamlfind.patch"]
 extra-files: [
   [
     "oxcaml-ocamlfind.patch"
-    "sha256=d2b6697aa04ef05667eb273d778bd0900a30373fc77591c6b664d1e2d3870e5a"
+    "sha256=871eeedcc5e07d796d00dbf1dcc82e01084a9c4e077b7086e1a776d57f1e5b7c"
   ]
 ]

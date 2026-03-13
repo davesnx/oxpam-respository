@@ -11,3 +11,17 @@ index 1234567..abcdefg 100644
 
  let rec remove_dups l =
    match l with
+diff --git a/src/findlib/topfind.in b/src/findlib/topfind.in
+index 7654321..fedcba9 100644
+--- a/src/findlib/topfind.in
++++ b/src/findlib/topfind.in
+@@ -99,7 +99,7 @@ let location =
+ in
+ 
+ let findlib_directory = match @RELATIVE_PATHS@ with
+   | true -> location / "lib" / "findlib"
+-  | false -> "@SITELIB@/findlib"
++  | false -> location / "findlib"
+ in
+ 
+ let () = Topdirs.dir_directory findlib_directory in
