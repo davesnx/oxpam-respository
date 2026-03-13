@@ -35,9 +35,10 @@ build: [
 ]
 dev-repo: "git+https://github.com/ocaml/ocamlbuild.git"
 url {
-  src: "https://github.com/ocaml/ocamlbuild/archive/refs/tags/0.15.0.tar.gz"
+  src:
+    "https://github.com/davesnx/ocamlbuild/archive/refs/heads/dune-pkg-0.15.0-nosymlink.tar.gz"
   checksum:
-    "sha512=c8311a9a78491bf759eb27153d6ba4692d27cd935759a145f96a8ba8f3c2e97cef54e7d654ed1c2c07c74f60482a4fef5224e26d0f04450e69cdcb9418c762d3"
+    "sha512=61455e4b6985afd23b5b2f30fe68fa549dac30260dd11623f09214347f231cb3616d795b19f36ebd5e24741dfdb9b8d6962905c8556384c31b8ca2c6fa78e4a9"
 }
 patches: ["flambda2.patch"]
 extra-files: [
