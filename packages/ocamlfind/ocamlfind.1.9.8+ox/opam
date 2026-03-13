@@ -33,6 +33,7 @@ build: [
   ]
   [make "all"]
   [make "opt"] {ocaml:native}
+  [make "install"]
 ]
 install: [
   [make "install"]
