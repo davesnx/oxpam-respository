@@ -20,18 +20,9 @@ depends: [
 depopts: ["graphics"]
 build: [
   [
-    "./configure"
-    "-bindir"
-    bin
-    "-sitelib"
-    lib
-    "-mandir"
-    man
-    "-config"
-    "%{lib}%/findlib.conf"
-    "-no-custom"
-    "-no-camlp4" {!ocaml:preinstalled & ocaml:version >= "4.02.0"}
-    "-no-topfind" {ocaml:preinstalled}
+    "sh"
+    "-exc"
+    "stable_lib=$(printf '%s' '%{lib}%' | sed -E 's#/_build/\\.sandbox/[^/]+#/_build#'); ./configure -bindir %{bin}% -sitelib \"$stable_lib\" -mandir %{man}% -config \"$stable_lib/findlib.conf\" -no-custom -no-camlp4"
   ]
   [make "all"]
   [make "opt"] {ocaml:native}
