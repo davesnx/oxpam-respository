@@ -35,15 +35,11 @@ depopts: ["cmdliner"]
 conflicts: [
   "cmdliner" {< "0.9.8" | >= "2.0.0"}
 ]
-build: [
-  "ocaml"
-  "pkg/pkg.ml"
-  "build"
-  "--dev-pkg"
-  "%{dev}%"
-  "--with-cmdliner"
-  "%{cmdliner:installed}%"
-]
+build: [[
+  "sh"
+  "-exc"
+  "OCAMLFIND_CONF=$(dirname $(dirname $(which ocamlfind)))/lib/findlib.conf ocaml pkg/pkg.ml build --dev-pkg %{dev}% --with-cmdliner %{cmdliner:installed}%"
+]]
 dev-repo: "git+https://erratique.ch/repos/uutf.git"
 url {
   src: "https://erratique.ch/software/uutf/releases/uutf-1.0.3.tbz"
