@@ -1,0 +1,10 @@
+diff --git a/pkg/pkg.ml b/pkg/pkg.ml
+index 3f19fd2..5168c88 100755
+--- a/pkg/pkg.ml
++++ b/pkg/pkg.ml
+@@ -1,5 +1,4 @@
+ #!/usr/bin/env ocaml
+-#use "topfind"
+ 
+ (* Bootstrap from source, note #mod_use is 4.01 *)
+ #directory "src"

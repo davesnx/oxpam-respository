@@ -43,11 +43,7 @@ depends: [
   "ocamlbuild" {= "0.15.0+ox"}
 ]
 build: [
-  [
-    "sh"
-    "-exc"
-    "OCAMLFIND_CONF=$(dirname $(dirname $(which ocamlfind)))/lib/findlib.conf ocamlfind ocaml pkg/pkg.ml build --pkg-name topkg --dev-pkg %{dev}%"
-  ]
+  ["ocaml" "pkg/pkg.ml" "build" "--pkg-name" name "--dev-pkg" "%{dev}%"]
 ]
 dev-repo: "git+https://erratique.ch/repos/topkg.git"
 url {
@@ -56,10 +52,14 @@ url {
     "sha512=4b632b60137852bb72ff9c8cdc2e16ac5ece6473569e50963fef9c1e800a0933a516bea1107b04011645afa4a1e78893c82dbce0aa8de2970d4d6c6d0dd2fe02"
 }
 x-maintenance-intent: ["(latest)"]
-patches: ["topkg_string.patch"]
+patches: ["topkg_string.patch" "topkg-no-topfind.patch"]
 extra-files: [
   [
     "topkg_string.patch"
     "sha256=a3c3a44d4ec429039a1463ef2c0ce3153a5c8c98af8e7c2c09905150e17d0e5a"
+  ]
+  [
+    "topkg-no-topfind.patch"
+    "sha256=4b3b0450ac1aaf29b33df00eca4adb0e80e5963b4bc61af497b96968c3a1e5a5"
   ]
 ]
