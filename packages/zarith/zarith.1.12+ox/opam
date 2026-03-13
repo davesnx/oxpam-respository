@@ -41,7 +41,7 @@ build: [
   ] {os = "macos" & os-distribution = "homebrew" & arch = "arm64"}
   [make]
 ]
-install: [make "install"]
+install: [["env" "OCAMLFIND_CONF=%{ocamlfind:lib}%/findlib.conf" make "install"]]
 dev-repo: "git+https://github.com/ocaml/Zarith.git"
 url {
   src: "https://github.com/ocaml/Zarith/archive/release-1.12.tar.gz"

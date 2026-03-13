@@ -24,7 +24,7 @@ build: [
     "-bindir"
     bin
     "-sitelib"
-    "%{lib}%/ocamlfind"
+    lib
     "-mandir"
     man
     "-config"
@@ -35,7 +35,6 @@ build: [
   ]
   [make "all"]
   [make "opt"] {ocaml:native}
-  [make "install"]
 ]
 install: [
   [make "install"]
