@@ -35,13 +35,18 @@ build: [
   [make "all"]
   [make "opt"] {ocaml:native}
   [make "install"]
+  [
+    "sh"
+    "-exc"
+    "stable_lib=$(printf '%s' '%{lib}%' | sed -E 's#/_build/.sandbox/[^/]+#/_build#'); stdlib=$(ocamlc.opt -where); printf 'destdir=\"%s\"\npath=\"%s:%s\"\nocamlc=\"ocamlc.opt\"\nocamlopt=\"ocamlopt.opt\"\nocamldep=\"ocamldep.opt\"\nocamldoc=\"ocamldoc.opt\"\n' \"$stable_lib\" \"$stdlib\" \"$stable_lib\" > '%{lib}%/findlib.conf'; for f in '%{lib}%/toplevel/topfind' '%{lib}%/ocamlfind/toplevel/topfind'; do if [ -f \"$f\" ]; then sed -E -i 's#/_build/.sandbox/[^/]+#/_build#g' \"$f\"; fi; done"
+  ]
 ]
 install: [
   [make "install"]
   [
     "sh"
     "-exc"
-    "stable_lib=$(printf '%s' '%{lib}%' | sed -E 's#/_build/.sandbox/[^/]+#/_build#'); stdlib=$(ocamlc.opt -where); cat > '%{lib}%/findlib.conf' <<EOF\ndestdir=\"$stable_lib\"\npath=\"$stdlib:$stable_lib\"\nocamlc=\"ocamlc.opt\"\nocamlopt=\"ocamlopt.opt\"\nocamldep=\"ocamldep.opt\"\nocamldoc=\"ocamldoc.opt\"\nEOF"
+    "stable_lib=$(printf '%s' '%{lib}%' | sed -E 's#/_build/.sandbox/[^/]+#/_build#'); stdlib=$(ocamlc.opt -where); printf 'destdir=\"%s\"\npath=\"%s:%s\"\nocamlc=\"ocamlc.opt\"\nocamlopt=\"ocamlopt.opt\"\nocamldep=\"ocamldep.opt\"\nocamldoc=\"ocamldoc.opt\"\n' \"$stable_lib\" \"$stdlib\" \"$stable_lib\" > '%{lib}%/findlib.conf'"
   ]
   [
     "sh"
