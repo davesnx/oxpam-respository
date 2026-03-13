@@ -13,7 +13,7 @@ Fmt is distributed under the ISC license.
 Home page: <http://erratique.ch/software/fmt>
 
 [`cmdliner`]: http://erratique.ch/software/cmdliner"""
-maintainer: "Daniel B\u00fcnzli <daniel.buenzl i@erratique.ch>"
+maintainer: "Daniel Buenzli <daniel.buenzl i@erratique.ch>"
 authors: "The fmt programmers"
 license: "ISC"
 tags: ["string" "format" "pretty-print" "org:erratique"]
