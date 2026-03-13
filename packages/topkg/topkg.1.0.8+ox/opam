@@ -42,7 +42,10 @@ depends: [
   "ocamlfind"  {build & >= "1.6.1"}
   "ocamlbuild" {= "0.15.0+ox"}
 ]
-build: ["ocaml" "pkg/pkg.ml" "build" "--pkg-name" name "--dev-pkg" "%{dev}%"]
+build: [
+  ["test" "-f" "%{ocamlfind:lib}%/findlib/findlib.cma"]
+  ["ocaml" "pkg/pkg.ml" "build" "--pkg-name" name "--dev-pkg" "%{dev}%"]
+]
 dev-repo: "git+https://erratique.ch/repos/topkg.git"
 url {
   src: "https://erratique.ch/software/topkg/releases/topkg-1.0.8.tbz"
