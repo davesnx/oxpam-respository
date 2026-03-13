@@ -43,7 +43,11 @@ depends: [
   "ocamlbuild" {= "0.15.0+ox"}
 ]
 build: [
-  ["ocaml" "pkg/pkg.ml" "build" "--pkg-name" name "--dev-pkg" "%{dev}%"]
+  [
+    "sh"
+    "-exc"
+    "OCAMLFIND_CONF=$(dirname $(dirname $(which ocamlfind)))/lib/findlib.conf ocaml pkg/pkg.ml build --pkg-name topkg --dev-pkg %{dev}%"
+  ]
 ]
 dev-repo: "git+https://erratique.ch/repos/topkg.git"
 url {
