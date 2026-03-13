@@ -41,8 +41,9 @@ install: [
   [
     "sh"
     "-exc"
-    "stable_lib=$(printf '%s' '%{lib}%' | sed -E 's#/_build/\\.sandbox/[^/]+#/_build#'); stdlib=$(ocamlc.opt -where); cat > '%{lib}%/findlib.conf' <<EOF\ndestdir=\"$stable_lib\"\npath=\"$stdlib:$stable_lib\"\nocamlc=\"ocamlc.opt\"\nocamlopt=\"ocamlopt.opt\"\nocamldep=\"ocamldep.opt\"\nocamldoc=\"ocamldoc.opt\"\nEOF; sed -E -i 's#/_build/\\.sandbox/[^/]+#/_build#g' '%{lib}%/toplevel/topfind'"
+    "stable_lib=$(printf '%s' '%{lib}%' | sed -E 's#/_build/\\.sandbox/[^/]+#/_build#'); stdlib=$(ocamlc.opt -where); cat > '%{lib}%/findlib.conf' <<EOF\ndestdir=\"$stable_lib\"\npath=\"$stdlib:$stable_lib\"\nocamlc=\"ocamlc.opt\"\nocamlopt=\"ocamlopt.opt\"\nocamldep=\"ocamldep.opt\"\nocamldoc=\"ocamldoc.opt\"\nEOF"
   ]
+  ["sed" "-E" "-i" "s#/_build/\\.sandbox/[^/]+#/_build#g" "%{lib}%/toplevel/topfind"]
   ["install" "-m" "0755" "ocaml-stub" "%{bin}%/ocaml"] {ocaml:preinstalled}
 ]
 dev-repo: "git+https://github.com/ocaml/ocamlfind.git"
