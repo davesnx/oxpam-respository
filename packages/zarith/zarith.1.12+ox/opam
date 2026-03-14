@@ -45,7 +45,7 @@ install: [
   [
     "sh"
     "-exc"
-    "OCAMLFIND_CONF=$(dirname $(dirname $(which ocamlfind)))/lib/findlib.conf OCAMLFIND_DESTDIR=%{lib}% OCAMLFIND_LDCONF=ignore make install"
+    "make && OCAMLFIND_CONF=$(dirname $(dirname $(which ocamlfind)))/lib/findlib.conf OCAMLFIND_DESTDIR=%{lib}% OCAMLFIND_LDCONF=ignore make install"
   ]
 ]
 dev-repo: "git+https://github.com/ocaml/Zarith.git"
