@@ -45,7 +45,7 @@ install: [
   [
     "sh"
     "-exc"
-    "make && OCAMLFIND_CONF=$(dirname $(dirname $(which ocamlfind)))/lib/findlib.conf OCAMLFIND_DESTDIR=%{lib}% OCAMLFIND_LDCONF=ignore make install"
+    "make && install -d %{lib}%/zarith %{lib}%/stublibs %{lib}%/toplevel && for f in META zarith.h big_int_Z.mli q.mli z.mli big_int_Z.cmi q.cmi z.cmi big_int_Z.cmti q.cmti z.cmti big_int_Z.cmx q.cmx z.cmx zarith.cma zarith.cmxa zarith.cmxs zarith_top.cma zarith.a libzarith.a; do if [ -f \"$f\" ]; then cp -f \"$f\" %{lib}%/zarith/; fi; done && for f in dllzarith.so dllzarith.dll libzarith.so libzarith.dll; do if [ -f \"$f\" ]; then cp -f \"$f\" %{lib}%/stublibs/; fi; done"
   ]
 ]
 dev-repo: "git+https://github.com/ocaml/Zarith.git"
