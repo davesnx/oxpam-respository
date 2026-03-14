@@ -37,5 +37,5 @@ build: [
 ]
 x-maintenance-intent: ["(latest)"]
 url {
-  src: "git+https://github.com/davesnx/odoc.git#2e3b29778"
+  src: "git+https://github.com/davesnx/odoc.git#2e3b2977899f23e73c1687aa74fce7fa007092ae"
 }
